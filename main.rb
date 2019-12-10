@@ -11,21 +11,20 @@ play_turn = players.cycle
 while game_over == false
   current_player = play_turn.next
   game.play_game(current_player)
-
   if game.result
-    puts "YES! You are correct."
+    puts "#{current_player.name}: YES! You are correct."
   else
     current_player.live_update
-    puts "Seriously? No!"
+    puts "#{current_player.name}: Seriously? No!"
   end
-
   game.update_score(players)
-    game_over = false
-    puts "------NEW TURN------"
-  if (players[0].live == 0 || players[1].live == 0)
+  if (players[0].live < 1 || players[1].live < 1)
     game_over = true
-    puts " wins with a score of /3"
+    puts "#{players[0].live == 0 ? players[1].name : players[0].name} wins with a score of #{players[0].live == 0 ? players[1].live : players[0].live}/3"
     puts "------GAME OVER------"
     puts "Goodbye!"
+  else
+    game_over = false
+    puts "------NEW TURN------"
   end
 end
