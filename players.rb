@@ -14,6 +14,3 @@ class Player
     @live = @live - 1
   end
 end
-
-# @player1 = Player.new(3, 1)
-# @player2 = Player.new(3, 2)

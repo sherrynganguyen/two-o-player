@@ -1,7 +1,3 @@
-# This is the main entrypoint into the program
-# It requires the other files/gems that it needs
-
-# require 'pry'
 require './players'
 require './game'
 
@@ -14,16 +10,16 @@ play_turn = players.cycle
 
 while game_over == false
   current_player = play_turn.next
-  game.Play_game(current_player)
+  game.play_game(current_player)
 
-  if game.Result
+  if game.result
     puts "YES! You are correct."
   else
     current_player.live_update
     puts "Seriously? No!"
   end
 
-  game.Update_score(players)
+  game.update_score(players)
     game_over = false
     puts "------NEW TURN------"
   if (players[0].live == 0 || players[1].live == 0)
