@@ -11,7 +11,7 @@ class Player
     @name = name
   end
   def live_update
-    @live -= 1
+    @live = @live - 1
   end
 end
 
